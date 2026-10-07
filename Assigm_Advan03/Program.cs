@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Linq.Expressions;
 
 namespace Assigm_Advan03
 {
@@ -110,6 +111,44 @@ namespace Assigm_Advan03
             Helper.PrintCollection("Players after removing ID 200", players);
 
 
+            #endregion
+
+            #region Phone Book
+            //Phone Book
+            Dictionary<string, string> contacts = new Dictionary<string, string>(); 
+            //Contact contact = new Contact() { Name = "Omar", PhoneNumber = "0123456789" };
+            contacts["Omar"]= "0123456789";
+            contacts.Add("Sara", "9876543210");
+            
+            Helper.PrintCollection("Contacts", contacts);
+
+            try
+            {
+                contacts.Add("Sara", "9876543210");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+           if( contacts.TryAdd("Sara", "9876543210"))
+                Console.WriteLine("Contact added successfully.");
+           
+           if(contacts.ContainsKey("Ahmed")&&contacts.ContainsValue("0112353749"))
+                Console.WriteLine(contacts["Ahmed"]);
+
+            string Name = "ziad";
+           string phonenUMBER=contacts.GetValueOrDefault("ziad", "Contact not found.");
+            Console.WriteLine($"{Name},{ phonenUMBER}");
+            foreach (var contact in contacts.Keys)
+            {
+                Console.WriteLine($"Contact keys: {contact}");
+            }
+
+            foreach (var contact in contacts.Values)
+            {
+                Console.WriteLine($"Contact values: {contact}");
+            }
             #endregion
         }
     }

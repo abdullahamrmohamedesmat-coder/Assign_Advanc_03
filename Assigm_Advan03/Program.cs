@@ -7,7 +7,7 @@ namespace Assigm_Advan03
         static void Main(string[] args)
         {
             #region Question
-            //1at answer
+            //1at answer01
             List<int> grades = [85, 92, 78, 95, 88, 70, 100, 65];
             Helper.PrintCollection("Grades", grades);
             Console.WriteLine($"Count:{grades.Count}");

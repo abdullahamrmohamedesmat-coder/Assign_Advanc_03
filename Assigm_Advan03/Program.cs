@@ -55,7 +55,61 @@ namespace Assigm_Advan03
             {
                 stringsGrades.Add($"Grade: {grade}");
             }
-            Helper.PrintCollection("String Grades", stringsGrades); 
+            Helper.PrintCollection("String Grades", stringsGrades);
+            #endregion
+
+            #region Question02
+            //ansswer02
+            SortedDictionary<int, string> players = new SortedDictionary<int, string>()
+            {
+                {500,"Ahmed"},
+                {200,"Sara" },
+                {800,"Ali"  },
+                {350,"Mona" }
+            };
+            //players.Keys.ToList<int>();  
+            //players.Values.ToList<string>();
+
+            //int minKey = players.Keys.First<int>();
+
+            //Dictionary<int, string> sortPlayers = new Dictionary<int, string>();
+            //foreach (var key in players.Keys)
+            //{
+            //    if (key > minKey)
+            //    {
+            //        minKey = key;
+            //        foreach (var player in players)
+            //        {
+            //            if (player.Key == minKey)
+            //            {
+            //                sortPlayers.Add(player.Key, player.Value);
+            //            }
+            //        }
+            //    }
+
+            //}
+            //players = sortPlayers;
+            //Helper.PrintCollection("Sorted Players", sortPlayers);
+            Helper.PrintCollection("Players", players);
+            //foreach (KeyValuePair<int, string> player in players)
+            //{
+            //    Console.WriteLine($"Player ID: {player.Key}, Name: {player.Value}");
+            //}
+            //Console.WriteLine();
+            Console.WriteLine($"First Score: {players.Keys.First()}");
+            Console.WriteLine($"First Name: {players.Values.First()}");
+            if (players.ContainsKey(500))
+            {
+                Console.WriteLine(players[500]);
+            }
+            if (players.TryGetValue(999, out string name))
+            {
+                Console.WriteLine(name);
+            }
+            players.Remove(200);
+            Helper.PrintCollection("Players after removing ID 200", players);
+
+
             #endregion
         }
     }

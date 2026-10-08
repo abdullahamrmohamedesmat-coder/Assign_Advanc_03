@@ -197,6 +197,36 @@ namespace Assigm_Advan03
             documents.TryDequeue(out string doc);
             Console.WriteLine(doc);//This will print null because the queue is empty after processing all documents.
             #endregion
+
+            #region Browser History (Undo)
+            //Browser History (Undo)
+            Stack<string> browserHistory = new Stack<string>();
+            browserHistory.Push("google.com");
+            browserHistory.Push("github.com");
+            browserHistory.Push("stackoverflow.com");
+            browserHistory.Push("youtube.com");
+            browserHistory.Push("claude.ai");
+
+            Console.WriteLine(browserHistory.Peek());
+            
+            while (browserHistory.Count >= 3)
+            {
+                Console.WriteLine("pressing '<-' to back 3 times");
+                string leftPage = browserHistory.Pop();
+                Console.WriteLine($"left Page: {leftPage}");
+            }
+            Console.WriteLine($"Current Page:{browserHistory.Peek()}");
+            browserHistory.Pop();
+            browserHistory.Pop();
+            if (browserHistory.TryPop(out string page))
+            {
+                Console.WriteLine(page);
+            }
+            else
+            {
+                Console.WriteLine("No more pages in history.");
+            }
+            #endregion
         }
     }
 }

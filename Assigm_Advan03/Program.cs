@@ -150,6 +150,31 @@ namespace Assigm_Advan03
                 Console.WriteLine($"Contact values: {contact}");
             }
             #endregion
+
+            #region Unique Email Validator
+            //Unique Email Validator
+            HashSet<string> emails = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            emails.Add("ahmed@test.com");
+            emails.Add("AHMED@test.com");
+            emails.Add("sara@test.com");
+            emails.Add("Sara@Test.Com");
+            Console.WriteLine(emails.Count);//2 because HashSet is case-insensitive ,so it only keeps unique email addresses regardless of case.
+            HashSet<int> A = [ 1, 2, 3, 4, 5 ];
+            HashSet<int> B = [4, 5, 6, 7, 8];
+            //Union and Intersection
+            HashSet<int> union = new HashSet<int>(A);
+             union.UnionWith(B);
+            Helper.PrintCollection("Union", union);
+            HashSet<int> intersection = new HashSet<int>(A);
+            intersection.IntersectWith(B);
+            Helper.PrintCollection("Intersection", intersection);
+            //Exception
+            HashSet<int> Except = new HashSet<int>(A);
+            Except.ExceptWith(B);
+            Helper.PrintCollection("Exception", Except);
+           HashSet<int> C = [1,2];
+            Console.WriteLine(C.IsSubsetOf(A));
+            #endregion
         }
     }
 }

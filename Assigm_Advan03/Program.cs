@@ -175,6 +175,28 @@ namespace Assigm_Advan03
            HashSet<int> C = [1,2];
             Console.WriteLine(C.IsSubsetOf(A));
             #endregion
+
+            #region Queue
+            //Queue
+            Queue<string> documents = new Queue<string>();
+            documents.Enqueue("Report.pdf");
+            documents.Enqueue("Invoice.pdf");
+            documents.Enqueue("Letter.docx");
+            documents.Enqueue("Resume.pdf");
+            documents.Enqueue("Photo.jpg");
+
+            Helper.PrintCollection("Documents in Queue", documents);
+            Console.WriteLine(documents.Count);
+            Console.WriteLine(documents.Peek());
+
+            while (documents.Count > 0)
+            {
+                string document = documents.Dequeue();
+                Console.WriteLine($"Processing document: {document}");
+            }
+            documents.TryDequeue(out string doc);
+            Console.WriteLine(doc);//This will print null because the queue is empty after processing all documents.
+            #endregion
         }
     }
 }
